@@ -1,21 +1,22 @@
-# Next.js + Tailwind CSS Example
+# Next.js Dark Mode Starter
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) (v2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This starter shows how to use [Next.js](https://nextjs.org) with the following:
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+- [TypeScript v4.1.3](https://www.typescriptlang.org) for build-time type safety
+  - [ESLint v7.19.0](https://eslint.org) for JavaScript & TypeScript linting
+  - [Prettier v2.2.1](https://prettier.io/) for code formatting
+  - [Husky v4.3.8](https://github.com/typicode/husky) for code linting and formatting in git hooks
+  - [Lint Staged v10.5.4](https://github.com/okonet/lint-staged) for linting staged files in git hooks
+- [Tailwind CSS v2.0.2](https://tailwindcss.com/) for CSS utility
 
 ## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the starter:
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+npx create-next-app with-dark-mode --example "https://github.com/adamsome/with-dark-mode"
 # or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+yarn create-next-app with-dark-mode --example "https://github.com/adamsome/with-dark-mode"
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+_Note: Requires [Node](https://nodejs.org/en/) v12+ to run._
