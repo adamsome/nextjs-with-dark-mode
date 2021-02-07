@@ -8,6 +8,7 @@ This starter shows how to use [Next.js](https://nextjs.org) with the following:
   - [Husky v4.3.8](https://github.com/typicode/husky) for code linting and formatting in git hooks
   - [Lint Staged v10.5.4](https://github.com/okonet/lint-staged) for linting staged files in git hooks
 - [Tailwind CSS v2.0.2](https://tailwindcss.com/) for CSS utility
+  - [Stylelint v13.9.0](https://stylelint.io/) for CSS linting
 
 ## How to use
 
