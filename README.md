@@ -1,6 +1,6 @@
 # Next.js Dark Mode Starter
 
-This starter shows how to use [Next.js](https://nextjs.org) with the following:
+This starter shows how to use [Next.js](https://nextjs.org) app support a dark mode with the following:
 
 - [TypeScript v4.1.3](https://www.typescriptlang.org) for build-time type safety
   - [ESLint v7.19.0](https://eslint.org) for JavaScript & TypeScript linting
