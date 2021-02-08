@@ -1,6 +1,8 @@
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
-import DarkModeSwitch from '../components/dark-mode-switch'
+import Footer from '../components/footer'
+import HomeLinks from '../components/home-links'
+import NavBar from '../components/nav-bar'
 
 type Props = typeof defaultProps & {
   cookie: string
@@ -14,14 +16,11 @@ export default function Home({ cookie }: Props) {
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white flex flex-col items-center justify-center min-h-screen transition-colors">
       <Head>
-        <title>Create Next App</title>
+        <title>Create Next App w/ Dark Mode</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <nav className="flex items-center justify-center w-full h-12 px-4 border-b dark:border-gray-900 transition-colors">
-        <div className="flex-1"></div>
-        <DarkModeSwitch cookie={cookie} />
-      </nav>
+      <NavBar cookie={cookie} />
 
       <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
@@ -38,60 +37,10 @@ export default function Home({ cookie }: Props) {
           </code>
         </p>
 
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border dark:border-gray-800 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 transition-colors"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border dark:border-gray-800 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 transition-colors"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border dark:border-gray-800 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 transition-colors"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border dark:border-gray-800 w-96 rounded-xl hover:text-blue-600 focus:text-blue-600 transition-colors"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <HomeLinks />
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t dark:border-gray-900 transition-colors">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+      <Footer />
     </div>
   )
 }
