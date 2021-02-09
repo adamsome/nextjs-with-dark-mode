@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="flex items-center justify-center w-full h-24 border-t dark:border-gray-900 transition-colors">
       <a
         className="flex items-center justify-center hover:text-blue-600 focus:text-blue-600 transition-colors"
-        href="https://github.com/adamsome/with-dark-mode"
+        href="https://github.com/adamsome/nextjs-with-dark-mode"
         target="_blank"
         rel="noopener noreferrer"
       >

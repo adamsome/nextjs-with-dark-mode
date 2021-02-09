@@ -16,9 +16,9 @@ This starter shows how to use [Next.js v10.0.6](https://nextjs.org) app support 
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the starter:
 
 ```bash
-npx create-next-app with-dark-mode --example "https://github.com/adamsome/with-dark-mode"
+npx create-next-app nextjs-with-dark-mode --example "https://github.com/adamsome/nextjs-with-dark-mode"
 # or
-yarn create-next-app with-dark-mode --example "https://github.com/adamsome/with-dark-mode"
+yarn create-next-app nextjs-with-dark-mode --example "https://github.com/adamsome/nextjs-with-dark-mode"
 ```
 
 _Note: Requires [Node](https://nodejs.org/en/) v12+ to run._
