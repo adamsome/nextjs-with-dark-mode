@@ -1,14 +1,13 @@
-import useDarkMode from '../util/use-dark-mode'
 import Switch from './switch'
 
 type Props = typeof defaultProps & {
-  cookie: string
+  isDarkMode: boolean
+  toggleDarkMode: () => void
 }
 
 const defaultProps = {}
 
-export default function NavBar({ cookie }: Props) {
-  const { isDarkMode, toggleDarkMode } = useDarkMode(cookie)
+export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
   const selected = isDarkMode ? 'right' : 'left'
 
   /*! Feather Icons v4.28.0 | MIT License | https://feathericons.com */

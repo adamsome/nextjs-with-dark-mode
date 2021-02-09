@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Footer from '../components/footer'
 import HomeLinks from '../components/home-links'
 import NavBar from '../components/nav-bar'
+import useDarkMode from '../util/use-dark-mode'
 
 type Props = typeof defaultProps & {
   cookie: string
@@ -13,6 +14,8 @@ const defaultProps = {
 }
 
 export default function Home({ cookie }: Props) {
+  const { isDarkMode, toggleDarkMode } = useDarkMode(cookie)
+
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white flex flex-col items-center justify-center min-h-screen transition-colors">
       <Head>
@@ -20,7 +23,7 @@ export default function Home({ cookie }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NavBar cookie={cookie} />
+      <NavBar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 
       <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
@@ -40,7 +43,7 @@ export default function Home({ cookie }: Props) {
         <HomeLinks />
       </main>
 
-      <Footer />
+      <Footer isDarkMode={isDarkMode} />
     </div>
   )
 }
