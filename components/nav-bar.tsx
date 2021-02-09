@@ -57,8 +57,8 @@ export default function NavBar({ cookie }: Props) {
         selected={selected}
         lhsIcon={sunIcon('70%')}
         rhsIcon={moonIcon('70%')}
-        lhsDimBG="gray-900"
-        lhsDimFG="gray-600"
+        lhsDimBG="gray-700"
+        lhsDimFG="gray-500"
         lhsLitBG="gray-800"
         lhsLitFG="yellow-500"
         rhsDimBG="gray-300"
