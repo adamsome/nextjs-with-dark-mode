@@ -16,7 +16,8 @@ export default function Footer({ isDarkMode }: Props) {
       <a
         className={`
           flex items-center justify-center text-xl
-          hover:text-blue-600 focus:text-blue-600 transition-colors`}
+          hover:text-blue-600 focus:text-blue-600 transition-colors
+        `}
         href="https://github.com/adamsome/nextjs-with-dark-mode"
         target="_blank"
         rel="noopener noreferrer"

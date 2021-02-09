@@ -49,10 +49,10 @@ export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
   )
 
   return (
-    <nav className="flex items-center justify-center w-full h-24 px-6 border-b dark:border-gray-900 transition-colors">
+    <nav className="flex flex-wrap items-center justify-center w-full min-h-24 py-2 px-6 border-b dark:border-gray-900 transition-colors">
       <div className="flex-1"></div>
       <Switch
-        className="ml-6"
+        className="ml-6 my-2"
         selected={selected}
         lhsIcon={sunIcon('70%')}
         rhsIcon={moonIcon('70%')}
@@ -70,7 +70,7 @@ export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
         onToggle={() => toggleDarkMode()}
       />
       <Switch
-        className="ml-6"
+        className="ml-6 my-2"
         selected={selected}
         lhsIcon={sunIcon()}
         lhsDimBG="gray-900"
@@ -86,7 +86,7 @@ export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
         onToggle={() => toggleDarkMode()}
       />
       <Switch
-        className="ml-6"
+        className="ml-6 my-2"
         selected={selected}
         lhsIcon={sunIcon()}
         lhsDimBG="white"
@@ -104,7 +104,7 @@ export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
         onToggle={() => toggleDarkMode()}
       />
       <Switch
-        className="ml-6"
+        className="ml-6 my-2"
         selected={selected}
         lhsIcon={sunIcon('65%')}
         lhsDimBG="white"

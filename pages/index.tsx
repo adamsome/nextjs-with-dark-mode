@@ -17,7 +17,13 @@ export default function Home({ cookie }: Props) {
   const { isDarkMode, toggleDarkMode } = useDarkMode(cookie)
 
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white flex flex-col items-center justify-center min-h-screen transition-colors">
+    <div
+      className={`
+        flex flex-col items-center justify-center
+        min-h-screen min-w-min
+      bg-white dark:bg-black text-black dark:text-white transition-colors
+      `}
+    >
       <Head>
         <title>Create Next App w/ Dark Mode</title>
         <link rel="icon" href="/favicon.ico" />
@@ -25,7 +31,12 @@ export default function Home({ cookie }: Props) {
 
       <NavBar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 
-      <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
+      <main
+        className={`
+          flex flex-col items-center justify-center flex-1 text-center
+          px-4 py-6
+        `}
+      >
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
           <a className="text-blue-600" href="https://nextjs.org">
