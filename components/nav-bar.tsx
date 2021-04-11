@@ -1,19 +1,31 @@
+import { useEffect, useState } from 'react'
+import { isBrowser } from '../util/dom'
+import { useTheme } from '../util/use-theme'
 import Switch from './switch'
 
-type Props = typeof defaultProps & {
-  isDarkMode: boolean
-  toggleDarkMode: () => void
-}
+type Props = typeof defaultProps
 
 const defaultProps = {}
 
-export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
-  const selected = isDarkMode ? 'right' : 'left'
+export default function NavBar(_: Props) {
+  const { theme: rawTheme, setTheme: setRawTheme } = useTheme()
+  const [theme, setTheme] = useState('dark')
+
+  // Prevent style mismatch when SSR by waiting for client-side
+  useEffect(() => {
+    if (isBrowser) setTheme(rawTheme ?? 'dark')
+  }, [isBrowser, rawTheme])
+
+  const selected = theme === 'dark' ? 'right' : 'left'
+
+  const toggleTheme = () => setRawTheme(theme === 'dark' ? 'light' : 'dark')
 
   /*! Feather Icons v4.28.0 | MIT License | https://feathericons.com */
   const sunIcon = (size = '80%') => (
     <svg
-      className={`stroke-current stroke-2 ${!isDarkMode ? 'fill-current' : ''}`}
+      className={`stroke-current stroke-2 ${
+        theme !== 'dark' ? 'fill-current' : ''
+      }`}
       fill="transparent"
       viewBox="0 0 24 24"
       strokeLinecap="round"
@@ -36,7 +48,9 @@ export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
   /*! Feather Icons v4.28.0 | MIT License | https://feathericons.com */
   const moonIcon = (size = '80%') => (
     <svg
-      className={`stroke-current stroke-2 ${isDarkMode ? 'fill-current' : ''}`}
+      className={`stroke-current stroke-2 ${
+        theme === 'dark' ? 'fill-current' : ''
+      }`}
       fill="transparent"
       viewBox="0 0 24 24"
       strokeLinecap="round"
@@ -67,7 +81,7 @@ export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
         invertBorder={true}
         size={5}
         borderWidth={0}
-        onToggle={() => toggleDarkMode()}
+        onToggle={() => toggleTheme()}
       />
       <Switch
         className="ml-6 my-2"
@@ -83,7 +97,7 @@ export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
         rhsLitBG="black"
         rhsLitFG="blue-600"
         size={7}
-        onToggle={() => toggleDarkMode()}
+        onToggle={() => toggleTheme()}
       />
       <Switch
         className="ml-6 my-2"
@@ -101,7 +115,7 @@ export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
         round={false}
         size={9}
         borderWidth={4}
-        onToggle={() => toggleDarkMode()}
+        onToggle={() => toggleTheme()}
       />
       <Switch
         className="ml-6 my-2"
@@ -117,7 +131,7 @@ export default function NavBar({ isDarkMode, toggleDarkMode }: Props) {
         rhsLitBG="blue-700"
         rhsLitFG="blue-200"
         size={11}
-        onToggle={() => toggleDarkMode()}
+        onToggle={() => toggleTheme()}
       />
     </nav>
   )

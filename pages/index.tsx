@@ -1,20 +1,25 @@
-import { GetServerSideProps } from 'next'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import Footer from '../components/footer'
 import HomeLinks from '../components/home-links'
 import NavBar from '../components/nav-bar'
-import useDarkMode from '../util/use-dark-mode'
+import { isBrowser } from '../util/dom'
+import { useTheme } from '../util/use-theme'
 
-type Props = typeof defaultProps & {
-  cookie: string
-}
+type Props = typeof defaultProps
 
 const defaultProps = {
   animate: true,
 }
 
-export default function Home({ cookie }: Props) {
-  const { isDarkMode, toggleDarkMode } = useDarkMode(cookie)
+export default function Home(_: Props) {
+  const { theme: rawTheme } = useTheme()
+  const [theme, setTheme] = useState('dark')
+
+  // Prevent style mismatch when SSR by waiting for client-side
+  useEffect(() => {
+    if (isBrowser) setTheme(rawTheme ?? 'dark')
+  }, [isBrowser, rawTheme])
 
   return (
     <div
@@ -25,11 +30,28 @@ export default function Home({ cookie }: Props) {
       `}
     >
       <Head>
+        <meta charSet="utf-8" />
         <title>Create Next App w/ Dark Mode</title>
-        <link rel="icon" href="/favicon.ico" />
+
+        <link
+          rel="icon"
+          href={theme === 'dark' ? '/favicon-invert.ico' : '/favicon.ico'}
+        />
+        <link
+          rel="icon"
+          href={theme === 'dark' ? '/icon-invert.svg' : '/icon.svg'}
+          type="image/svg+xml"
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
       </Head>
 
-      <NavBar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <NavBar />
 
       <main
         className={`
@@ -54,17 +76,9 @@ export default function Home({ cookie }: Props) {
         <HomeLinks />
       </main>
 
-      <Footer isDarkMode={isDarkMode} />
+      <Footer />
     </div>
   )
 }
 
 Home.defaultProps = defaultProps
-
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  return {
-    props: {
-      cookie: req.headers.cookie ?? '',
-    },
-  }
-}
